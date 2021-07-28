@@ -54,6 +54,7 @@ export default {
   left: 0;
   min-width: 100%;
   z-index: 10;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
 .logo {

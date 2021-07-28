@@ -10,6 +10,8 @@
             <h3 class="product-title">{{ product.title }}</h3>
             <p>{{ product.desc.slice(0, 60) }} ...</p>
             <h4>{{ product.price }}TK</h4>
+            <b class="discount" v-if="product.coupon">🎁10% discount🎁</b>
+
             <div class="btn-grp">
               <button
                 @click="addToCart(product)"
@@ -105,10 +107,18 @@ h2 {
   width: 100%;
 }
 .product {
+  position: relative;
   display: grid;
   border-radius: 12px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s linear;
+}
+.discount {
+  position: absolute;
+  font-size: 14px;
+  color: #e74f4f;
+  top: 12px;
+  right: 12px;
 }
 .product:hover {
   transform: scale(1.02) rotate(-0.5deg);
@@ -189,7 +199,7 @@ h2 {
 }
 @media (max-width: 800px) {
   .container {
-    padding: 30% 4% 10%;
+    padding: 37% 4% 10%;
   }
 }
 @media (max-width: 768px) {

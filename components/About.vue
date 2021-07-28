@@ -53,4 +53,9 @@ export default {};
 .about .hero-content p:nth-child(even) {
   border-left: 4px solid #f89898;
 }
+@media (max-width: 800px) {
+  .about {
+    border: 0;
+  }
+}
 </style>

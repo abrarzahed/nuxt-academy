@@ -7,7 +7,12 @@ export const state = () => ({
       desc:
         "Education is the process of facilitating learning, or the acquisition of knowledge, skills, values, morals, beliefs, and habits. Educational methods include teaching, training, storytelling, discussion and directed research. Education frequently takes place under the guidance of educators, however learners can also educate themselves. Education can take place in formal or informal settings and any experience that has a formative effect on the way one thinks, feels, or acts may be considered educational. The methodology of teaching is called pedagogy.Formal education is commonly divided formally into such stages as preschool or kindergarten, primary school, secondary school and then college, university, or apprenticeship.",
       price: 1000,
-      coupon: false
+      coupon: false,
+      discount: 20,
+      cp: {
+        value: "shafiyoutube",
+        discount: 20
+      }
     },
     {
       id: 2,
@@ -145,11 +150,13 @@ export const actions = {
     const cartItem = context.state.listedProducts.find(item => item.id === id);
     if (!cartItem) {
       const product = context.state.products.find(item => item.id === id);
-      if (product.coupon) {
-        const price = product.price - 250;
-        context.commit("UPDATE_PRODUCT_PRICE", { product, price });
+      const copyProduct = JSON.parse(JSON.stringify(product));
+
+      if (copyProduct.coupon) {
+        copyProduct.price = copyProduct.price - 250;
+        // context.commit("UPDATE_PRODUCT_PRICE", { product, price });
       }
-      context.commit("PUSH_ITEM_TO_CART", product);
+      context.commit("PUSH_ITEM_TO_CART", copyProduct);
     }
   },
   selectPopUpItem(context, item) {

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h2>Listed Products</h2>
+    <h2>Listed Courses</h2>
     <div class="cart-wrapper">
       <div
         class="single-product"

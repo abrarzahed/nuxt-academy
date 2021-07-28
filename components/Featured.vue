@@ -7,6 +7,7 @@
         <div class="product-info">
           <h3 class="product-title">{{ product.title }}</h3>
           <p>{{ product.desc.slice(0, 60) }} ...</p>
+          <b class="discount" v-if="product.coupon">🎁10% discount🎁</b>
           <h4>{{ product.price }}TK</h4>
           <div class="btn-grp">
             <button

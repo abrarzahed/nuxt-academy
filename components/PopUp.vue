@@ -6,9 +6,9 @@
         🎉 Thanks for choosing {{ selectedItem.title }} 🎉
       </p>
       <h3 class="product-title">{{ selectedItem.title }}</h3>
-      <!-- <p>
-        {{ selectedItem.desc.slice(0, 200) }}
-      </p> -->
+      <p v-if="selectedItem.desc">
+        {{ selectedItem.desc.slice(0, 100) }}
+      </p>
       <h4>{{ selectedItem.price }}TK</h4>
       <b v-if="selectedItem.coupon">🎁 10% discount 🎁</b>
       <div v-if="selectedItem.coupon" class="coupon">
