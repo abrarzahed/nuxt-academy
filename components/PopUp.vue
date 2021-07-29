@@ -42,11 +42,13 @@ export default {
       this.closePopUp();
     },
     submit() {
+      this.pushItemToCart(this.selectedItem.id); //! Bug:-  adding item to cart as well as updating price . Without testing coupon code!
+
       if (this.selectedItem.cp.value == this.checkCoupon) {
-        this.pushItemToCart(this.selectedItem.id);
         this.closePopUp();
+      } else if (this.selectedItem.cp.value !== this.checkCoupon) {
+        this.invalid = true;
       }
-      this.invalid = true;
     }
   },
   computed: {

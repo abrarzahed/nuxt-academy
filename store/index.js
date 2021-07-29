@@ -144,7 +144,8 @@ export const state = () => ({
   ],
   selectedItem: {},
   popUp: false,
-  coupon: "discount"
+  addedItem: []
+  // coupon: "discount"
 });
 
 export const mutations = {
@@ -162,6 +163,9 @@ export const mutations = {
   },
   UPDATE_PRODUCT_PRICE(state, { product, price }) {
     product.price = price;
+  },
+  ADD_ITEM(state, id) {
+    state.addedItem.push(id);
   }
 };
 
@@ -193,5 +197,8 @@ export const actions = {
   },
   openPopUp(context) {
     context.commit("OPEN_POP_UP");
+  },
+  addItem(context, id) {
+    context.commit("ADD_ITEM", id);
   }
 };

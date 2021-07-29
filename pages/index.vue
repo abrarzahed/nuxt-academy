@@ -8,6 +8,9 @@
           <img :src="product.image" alt="Image" />
           <div class="product-info">
             <h3 class="product-title">{{ product.title }}</h3>
+            <p v-if="addedItem.includes(product.id)" class="added-cart-item">
+              &#10004;
+            </p>
             <p>{{ product.desc.slice(0, 60) }} ...</p>
             <h4>{{ product.price }}TK</h4>
             <b class="discount" v-if="product.discount"
@@ -20,6 +23,7 @@
                 @click="addToCart(product)"
                 class="btn btn-cart"
                 :class="{ 'btn-green': product.cp }"
+                :disabled="addedItem.includes(product.id)"
               >
                 Add to Cart
               </button>
@@ -58,8 +62,15 @@ export default {
     return {};
   },
   methods: {
-    ...mapActions(["pushItemToCart", "selectPopUpItem", "openPopUp"]),
+    ...mapActions([
+      "pushItemToCart",
+      "selectPopUpItem",
+      "openPopUp",
+      "addItem"
+    ]),
     addToCart(item) {
+      this.addItem(item.id);
+
       if (this.hasCoupon(item)) {
         this.selectPopUpItem(item);
         this.openPopUp();
@@ -77,6 +88,9 @@ export default {
     },
     popUp() {
       return this.$store.state.popUp;
+    },
+    addedItem() {
+      return this.$store.state.addedItem;
     }
   }
 };
@@ -134,6 +148,20 @@ h2 {
   left: 12px;
   width: 40px;
   height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+}
+.added-cart-item {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -30px);
+  top: 90px;
+  font-size: 40px;
+  background: #479741;
+  color: #fff !important;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   display: grid;
   place-content: center;
@@ -199,6 +227,10 @@ h2 {
 .btn-cart {
   background: #9e744c;
 }
+.btn-cart:disabled {
+  cursor: no-drop;
+  opacity: 0.5;
+}
 .btn-details {
   background: #ff5252;
 }
@@ -218,6 +250,7 @@ h2 {
   justify-content: space-between;
   align-items: center;
 }
+
 @media (max-width: 800px) {
   .container {
     padding: 37% 4% 10%;

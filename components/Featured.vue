@@ -6,6 +6,9 @@
         <img :src="product.image" alt="Image" />
         <div class="product-info">
           <h3 class="product-title">{{ product.title }}</h3>
+          <p v-if="addedItem.includes(product.id)" class="added-cart-item">
+            &#10004;
+          </p>
           <p>{{ product.desc.slice(0, 60) }} ...</p>
           <b class="discount" v-if="product.discount"
             >🎁 {{ product.discount }}% Off</b
@@ -18,6 +21,7 @@
               @click="addToCart(product)"
               class="btn btn-cart"
               :class="{ 'btn-green': product.cp }"
+              :disabled="addedItem.includes(product.id)"
             >
               Add to Cart
             </button>
@@ -38,8 +42,15 @@ export default {
     return {};
   },
   methods: {
-    ...mapActions(["pushItemToCart", "selectPopUpItem", "openPopUp"]),
+    ...mapActions([
+      "pushItemToCart",
+      "selectPopUpItem",
+      "openPopUp",
+      "addItem"
+    ]),
     addToCart(item) {
+      this.addItem(item.id);
+
       if (this.hasCoupon(item)) {
         this.selectPopUpItem(item);
         this.openPopUp();
@@ -57,6 +68,9 @@ export default {
     },
     featureProducts() {
       return this.$store.state.products.slice(0, 4);
+    },
+    addedItem() {
+      return this.$store.state.addedItem;
     }
   }
 };
