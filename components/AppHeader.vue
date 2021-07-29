@@ -2,7 +2,7 @@
   <header class="header">
     <div class="container">
       <nuxt-link to="/">
-        <h3 class="logo">Academy</h3>
+        <h3 class="logo">OC Academy</h3>
       </nuxt-link>
       <nuxt-link to="/cart">
         <div class="menu">

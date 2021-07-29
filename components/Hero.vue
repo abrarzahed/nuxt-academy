@@ -2,7 +2,7 @@
   <div class="hero showcase">
     <div class="hero-content">
       <h1>Welcome</h1>
-      <h3>Nuxt Academy</h3>
+      <h3>OC Academy</h3>
       <p>
         Education is the process of facilitating learning, or the acquisition of
         knowledge, skills, values, morals, beliefs, and habits. Educational

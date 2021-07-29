@@ -22,7 +22,7 @@
 export default {
   head() {
     return {
-      title: "Nuxt store || Listed products",
+      title: "OC Academy || Listed Courses",
       meta: [
         {
           hid: "description",

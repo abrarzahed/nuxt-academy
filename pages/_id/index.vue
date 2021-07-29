@@ -16,7 +16,7 @@ export default {
   layout: "default",
   head() {
     return {
-      title: this.products.title,
+      title: `OC Academy ${this.products.title}`,
       meta: [
         {
           hid: "description",

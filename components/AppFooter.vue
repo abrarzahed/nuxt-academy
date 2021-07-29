@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <h3 class="logo">Academy</h3>
+    <h3 class="logo">OC Academy</h3>
     <p>Simple Front-end Application || developed by Abrar</p>
   </footer>
 </template>

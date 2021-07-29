@@ -3,7 +3,7 @@
     <h2>About Us</h2>
     <div class="hero about">
       <div class="hero-content">
-        <h3>Nuxt Academy</h3>
+        <h3>OC Academy</h3>
         <p>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod
           distinctio excepturi,

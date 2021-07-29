@@ -44,7 +44,7 @@ import { mapActions } from "vuex";
 export default {
   head() {
     return {
-      title: "Nuxt Store",
+      title: "OC Academy",
       meta: [
         {
           hid: "description",
