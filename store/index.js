@@ -6,13 +6,10 @@ export const state = () => ({
       image: require("@/assets/c1.png"),
       desc:
         "Education is the process of facilitating learning, or the acquisition of knowledge, skills, values, morals, beliefs, and habits. Educational methods include teaching, training, storytelling, discussion and directed research. Education frequently takes place under the guidance of educators, however learners can also educate themselves. Education can take place in formal or informal settings and any experience that has a formative effect on the way one thinks, feels, or acts may be considered educational. The methodology of teaching is called pedagogy.Formal education is commonly divided formally into such stages as preschool or kindergarten, primary school, secondary school and then college, university, or apprenticeship.",
-      price: 1000,
-      coupon: false,
+      price: 10000,
+      // coupon: false,
       discount: 20,
-      cp: {
-        value: "shafiyoutube",
-        discount: 20
-      }
+      cp: null
     },
     {
       id: 2,
@@ -20,8 +17,14 @@ export const state = () => ({
       image: require("@/assets/c2.png"),
       desc:
         "Education is the process of facilitating learning, or the acquisition of knowledge, skills, values, morals, beliefs, and habits. Educational methods include teaching, training, storytelling, discussion and directed research. Education frequently takes place under the guidance of educators, however learners can also educate themselves. Education can take place in formal or informal settings and any experience that has a formative effect on the way one thinks, feels, or acts may be considered educational. The methodology of teaching is called pedagogy.Formal education is commonly divided formally into such stages as preschool or kindergarten, primary school, secondary school and then college, university, or apprenticeship.",
-      price: 1100,
-      coupon: false
+      price: 11100,
+      cp: {
+        value: "shafi",
+        cpAmount: 20
+      },
+      discount: 10
+
+      // coupon: false
     },
     {
       id: 3,
@@ -29,8 +32,9 @@ export const state = () => ({
       image: require("@/assets/c5.png"),
       desc:
         "Education is the process of facilitating learning, or the acquisition of knowledge, skills, values, morals, beliefs, and habits. Educational methods include teaching, training, storytelling, discussion and directed research. Education frequently takes place under the guidance of educators, however learners can also educate themselves. Education can take place in formal or informal settings and any experience that has a formative effect on the way one thinks, feels, or acts may be considered educational. The methodology of teaching is called pedagogy.Formal education is commonly divided formally into such stages as preschool or kindergarten, primary school, secondary school and then college, university, or apprenticeship.",
-      price: 1200,
-      coupon: true
+      price: 12200,
+      cp: null
+      // coupon: true
     },
     {
       id: 4,
@@ -38,8 +42,11 @@ export const state = () => ({
       image: require("@/assets/c4.png"),
       desc:
         "Education is the process of facilitating learning, or the acquisition of knowledge, skills, values, morals, beliefs, and habits. Educational methods include teaching, training, storytelling, discussion and directed research. Education frequently takes place under the guidance of educators, however learners can also educate themselves. Education can take place in formal or informal settings and any experience that has a formative effect on the way one thinks, feels, or acts may be considered educational. The methodology of teaching is called pedagogy.Formal education is commonly divided formally into such stages as preschool or kindergarten, primary school, secondary school and then college, university, or apprenticeship.",
-      price: 1300,
-      coupon: false
+      price: 13300,
+      cp: null,
+      discount: 30
+
+      // coupon: false
     },
     {
       id: 5,
@@ -47,8 +54,13 @@ export const state = () => ({
       image: require("@/assets/kids.png"),
       desc:
         "Education is the process of facilitating learning, or the acquisition of knowledge, skills, values, morals, beliefs, and habits. Educational methods include teaching, training, storytelling, discussion and directed research. Education frequently takes place under the guidance of educators, however learners can also educate themselves. Education can take place in formal or informal settings and any experience that has a formative effect on the way one thinks, feels, or acts may be considered educational. The methodology of teaching is called pedagogy.Formal education is commonly divided formally into such stages as preschool or kindergarten, primary school, secondary school and then college, university, or apprenticeship.",
-      price: 1400,
-      coupon: true
+      price: 14400,
+      cp: {
+        value: "shafi",
+        cpAmount: 20
+      }
+
+      // coupon: true
     },
     {
       id: 6,
@@ -56,8 +68,10 @@ export const state = () => ({
       image: require("@/assets/hero.png"),
       desc:
         "Education is the process of facilitating learning, or the acquisition of knowledge, skills, values, morals, beliefs, and habits. Educational methods include teaching, training, storytelling, discussion and directed research. Education frequently takes place under the guidance of educators, however learners can also educate themselves. Education can take place in formal or informal settings and any experience that has a formative effect on the way one thinks, feels, or acts may be considered educational. The methodology of teaching is called pedagogy.Formal education is commonly divided formally into such stages as preschool or kindergarten, primary school, secondary school and then college, university, or apprenticeship.",
-      price: 1500,
-      coupon: false
+      price: 15500,
+      cp: null,
+      discount: 5
+      // coupon: false
     },
     {
       id: 7,
@@ -65,8 +79,9 @@ export const state = () => ({
       image: require("@/assets/c1.png"),
       desc:
         "Education is the process of facilitating learning, or the acquisition of knowledge, skills, values, morals, beliefs, and habits. Educational methods include teaching, training, storytelling, discussion and directed research. Education frequently takes place under the guidance of educators, however learners can also educate themselves. Education can take place in formal or informal settings and any experience that has a formative effect on the way one thinks, feels, or acts may be considered educational. The methodology of teaching is called pedagogy.Formal education is commonly divided formally into such stages as preschool or kindergarten, primary school, secondary school and then college, university, or apprenticeship.",
-      price: 1600,
-      coupon: true
+      price: 16600,
+      cp: null
+      // coupon: true
     },
     {
       id: 8,
@@ -74,8 +89,13 @@ export const state = () => ({
       image: require("@/assets/c2.png"),
       desc:
         "Education is the process of facilitating learning, or the acquisition of knowledge, skills, values, morals, beliefs, and habits. Educational methods include teaching, training, storytelling, discussion and directed research. Education frequently takes place under the guidance of educators, however learners can also educate themselves. Education can take place in formal or informal settings and any experience that has a formative effect on the way one thinks, feels, or acts may be considered educational. The methodology of teaching is called pedagogy.Formal education is commonly divided formally into such stages as preschool or kindergarten, primary school, secondary school and then college, university, or apprenticeship.",
-      price: 1700,
-      coupon: true
+      price: 17700,
+      cp: {
+        value: "shafi",
+        cpAmount: 20
+      },
+      discount: 12
+      // coupon: true
     }
   ],
   listedProducts: [
@@ -151,9 +171,15 @@ export const actions = {
     if (!cartItem) {
       const product = context.state.products.find(item => item.id === id);
       const copyProduct = JSON.parse(JSON.stringify(product));
+      if (copyProduct.discount) {
+        copyProduct.price =
+          copyProduct.price - (copyProduct.price * copyProduct.discount) / 100;
+      }
+      if (copyProduct.cp) {
+        copyProduct.price =
+          copyProduct.price -
+          (copyProduct.price * copyProduct.cp.cpAmount) / 100;
 
-      if (copyProduct.coupon) {
-        copyProduct.price = copyProduct.price - 250;
         // context.commit("UPDATE_PRODUCT_PRICE", { product, price });
       }
       context.commit("PUSH_ITEM_TO_CART", copyProduct);

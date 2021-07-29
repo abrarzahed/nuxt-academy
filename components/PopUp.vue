@@ -10,8 +10,10 @@
         {{ selectedItem.desc.slice(0, 100) }}
       </p>
       <h4>{{ selectedItem.price }}TK</h4>
-      <b v-if="selectedItem.coupon">🎁 10% discount 🎁</b>
-      <div v-if="selectedItem.coupon" class="coupon">
+      <b v-if="selectedItem.discount"
+        >🎁 {{ selectedItem.discount }}% discount 🎁</b
+      >
+      <div v-if="selectedItem.cp" class="coupon">
         <input
           type="text"
           class="coupon_input"
@@ -40,7 +42,7 @@ export default {
       this.closePopUp();
     },
     submit() {
-      if (this.coupon == this.checkCoupon) {
+      if (this.selectedItem.cp.value == this.checkCoupon) {
         this.pushItemToCart(this.selectedItem.id);
         this.closePopUp();
       }

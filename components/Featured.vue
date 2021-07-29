@@ -7,13 +7,17 @@
         <div class="product-info">
           <h3 class="product-title">{{ product.title }}</h3>
           <p>{{ product.desc.slice(0, 60) }} ...</p>
-          <b class="discount" v-if="product.coupon">🎁10% discount🎁</b>
+          <b class="discount" v-if="product.discount"
+            >🎁 {{ product.discount }}% Off</b
+          >
+          <b class="cp" v-if="product.cp">📇</b>
+
           <h4>{{ product.price }}TK</h4>
           <div class="btn-grp">
             <button
               @click="addToCart(product)"
               class="btn btn-cart"
-              :class="{ 'btn-green': product.coupon }"
+              :class="{ 'btn-green': product.cp }"
             >
               Add to Cart
             </button>
@@ -44,7 +48,7 @@ export default {
       }
     },
     hasCoupon(item) {
-      return item.coupon;
+      return item.cp;
     }
   },
   computed: {

@@ -10,13 +10,16 @@
             <h3 class="product-title">{{ product.title }}</h3>
             <p>{{ product.desc.slice(0, 60) }} ...</p>
             <h4>{{ product.price }}TK</h4>
-            <b class="discount" v-if="product.coupon">🎁10% discount🎁</b>
+            <b class="discount" v-if="product.discount"
+              >🎁 {{ product.discount }}% Off</b
+            >
+            <b class="cp" v-if="product.cp">📇</b>
 
             <div class="btn-grp">
               <button
                 @click="addToCart(product)"
                 class="btn btn-cart"
-                :class="{ 'btn-green': product.coupon }"
+                :class="{ 'btn-green': product.cp }"
               >
                 Add to Cart
               </button>
@@ -65,7 +68,7 @@ export default {
       }
     },
     hasCoupon(item) {
-      return item.coupon;
+      return item.cp;
     }
   },
   computed: {
@@ -115,10 +118,25 @@ h2 {
 }
 .discount {
   position: absolute;
-  font-size: 14px;
-  color: #e74f4f;
+  font-size: 12px;
+  background: #e74f4f;
+  color: #fff;
   top: 12px;
   right: 12px;
+  padding: 6px;
+  border-radius: 4px;
+}
+.cp {
+  font-size: 20px;
+  background: #47948f;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
 }
 .product:hover {
   transform: scale(1.02) rotate(-0.5deg);
@@ -155,7 +173,10 @@ h2 {
   font-size: 18px;
   font-weight: 500;
 }
-
+.product-info p {
+  color: #444;
+  letter-spacing: 0.2px;
+}
 .btn-grp {
   display: flex;
   justify-content: space-between;
