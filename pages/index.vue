@@ -53,7 +53,7 @@ export default {
         {
           hid: "description",
           name: "description",
-          content: "Best shoe store"
+          content: "Best Online Academy"
         }
       ]
     };
