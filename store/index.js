@@ -144,7 +144,8 @@ export const state = () => ({
   ],
   selectedItem: {},
   popUp: false,
-  addedItem: []
+  addedItem: [],
+  couponList: ["shafi"]
   // coupon: "discount"
 });
 
@@ -170,16 +171,22 @@ export const mutations = {
 };
 
 export const actions = {
-  pushItemToCart(context, id) {
+  pushItemToCart(context, payload) {
+    console.log("payload", payload);
+    const { id, isCouponValid } = payload;
+
     const cartItem = context.state.listedProducts.find(item => item.id === id);
     if (!cartItem) {
       const product = context.state.products.find(item => item.id === id);
+      console.log(`Product`, product);
+
       const copyProduct = JSON.parse(JSON.stringify(product));
+
       if (copyProduct.discount) {
         copyProduct.price =
           copyProduct.price - (copyProduct.price * copyProduct.discount) / 100;
       }
-      if (copyProduct.cp) {
+      if (isCouponValid && copyProduct.cp) {
         copyProduct.price =
           copyProduct.price -
           (copyProduct.price * copyProduct.cp.cpAmount) / 100;

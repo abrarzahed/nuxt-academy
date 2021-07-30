@@ -75,7 +75,7 @@ export default {
         this.selectPopUpItem(item);
         this.openPopUp();
       } else {
-        this.pushItemToCart(item.id);
+        this.pushItemToCart({ id: item.id, isCouponValid: false });
       }
     },
     hasCoupon(item) {
